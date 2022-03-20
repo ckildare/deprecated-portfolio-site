@@ -1,11 +1,15 @@
+@import 'animate.css';
 :root {
-  --light-background: url("resources/images/beige-background.png");
+  --light-background: url("resources/images/white-background.png");
   --darker-background: url("resources/images/beige-background-2.png");
+  --heading-background: url("resources/images/black-panel-background.png");
 }
 
 body {
   text-align: center;
   margin: 0 auto;
+  color: white;
+  font: 10% roboto-slab-thin;
   background-image: var(--light-background);
 }
 body > #container {
@@ -22,26 +26,39 @@ body > #container {
 .headshot > img {
   width: 25%;
   border-radius: 50%;
-  border: 5% solid black;
-  margin: 5% 0% 2.5% 0%;
+  border: 5px solid #555;
+  animation: o-rotate-360 linear 8s infinite;
+  margin: 5% 0% 2% 0%;
+  position: relative;
+  box-shadow: 15px 15px 50px 0 black;
 }
 
-.center, .headshot {
+.center, .navigation, .headshot {
   margin: auto;
   width: 50%;
 }
 
-.name {
-  margin-bottom: 1 px;
-}
-
 .heading {
-  background-image: url("resources/images/background.png");
+  box-shadow: 0 30px 100px 0 black;
+  background-image: var(--heading-background);
+  font-size: 2rem;
+  margin: 0.5% 0.5% 5% 0.5%;
 }
 
 .background, body, .heading {
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.navigation {
+  font-size: 1 rem;
+  margin-bottom: 20%;
+  padding: 2% 0 1% 0;
+}
+.navigation > a {
+  margin-inline: 1%;
+  font-size: 1.5rem;
+  padding: 1%;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -55,6 +72,42 @@ body > #container {
 @font-face {
   font-family: roboto-slab-thin;
   src: url("resources/fonts/roboto-slab-thin.tff");
+}
+/*-------------------------------------------------------------------------------------------------------*/
+/* Animations */
+.fade-in-header, .heading {
+  animation-name: fade-in-opacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes fade-in-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in-bg, a:hover {
+  opacity: 1;
+  animation-name: bg-fade-in;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+@keyframes bg-fade-in {
+  0% {
+    background-color: rgba(75, 75, 75, 0);
+    font-size: 1.5rem;
+  }
+  100% {
+    background-color: rgba(75, 75, 75, 0.5);
+    font-size: 1.6rem;
+  }
 }
 /*-------------------------------------------------------------------------------------------------------*/
 /* Default Link Styling */

@@ -1,11 +1,19 @@
+@import 'animate.css';
+
+$image-root: "resources/images";
+$font-root: "resources/fonts";
+
 :root {
-    --light-background: url("resources/images/beige-background.png");
-    --darker-background: url("resources/images/beige-background-2.png");
+    --light-background: url("#{$image-root}/white-background.png");
+    --darker-background: url("#{$image-root}/beige-background-2.png");
+    --heading-background: url("#{$image-root}/black-panel-background.png");
 }
 
 body {
     text-align: center;
     margin: 0 auto;
+    color: white;
+    font: 10% roboto-slab-thin;
     > #container {
         text-align:left;
         margin:0 auto;
@@ -23,8 +31,11 @@ body {
     > img {
         width: 25%;
         border-radius: 50%;
-        border: 5% solid black;
-        margin: 5% 0% 2.5% 0%;
+        border: 5px solid #555;
+        animation: o-rotate-360 linear 8s infinite;
+        margin: 5% 0% 2% 0%;
+        position: relative;
+	    box-shadow: 15px 15px 50px 0 rgba(0,0,0,1);
     }
 }
 
@@ -33,18 +44,30 @@ body {
     width: 50%;
 }
 
-.name {
-    margin-bottom: 1 px;
-}
-
 .heading {
     @extend .background;
-    background-image: url("resources/images/background.png");
+    @extend .fade-in-header;
+    box-shadow: 0 30px 100px 0 rgba(0,0,0,1);
+    background-image: var(--heading-background);
+    font-size: 2rem;
+    margin: 0.5% 0.5% 5% 0.5%;
 }
 
 .background {
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.navigation {
+    @extend .center;
+    font-size: 1 rem;
+    margin-bottom: 20%;
+    padding: 2% 0 1% 0;
+    > a {
+        margin-inline: 1%;
+        font-size: 1.5rem;
+        padding: 1%;
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -60,6 +83,49 @@ body {
 @font-face {
     font-family: roboto-slab-thin;
     src: url("resources/fonts/roboto-slab-thin.tff");
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/* Animations */
+
+.fade-in-header {
+	animation-name: fade-in-opacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fade-in-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.fade-in-bg {
+    opacity: 1;
+	animation-name: bg-fade-in;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+	animation-duration: 0.5s;
+}
+
+@keyframes bg-fade-in {
+	0% {
+		background-color: rgba(75, 75, 75, 0);
+        font-size: 1.5rem;
+	}
+	100% {
+		background-color: rgba(75, 75, 75, 0.5);
+        font-size: 1.6rem;
+	}
+}
+
+a:hover {
+    @extend .fade-in-bg;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
