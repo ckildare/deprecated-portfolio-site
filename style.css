@@ -33,12 +33,6 @@
     src: url(resources/fonts/roboto-slab-thin.tff);
 }
 
-/* Open Sans Font Face */
-@font-face {
-    font-family: open-sans-medium;
-    src: url(resources/fonts/open-sans-medium.ttf);
-}
-
 /*-------------------------------------------------------------------------------------------------------*/
 /* Default Link Styling */
 :link {
