@@ -3,63 +3,22 @@
   --light-background: url("resources/images/white-background.png");
   --darker-background: url("resources/images/beige-background-2.png");
   --heading-background: url("resources/images/black-panel-background.png");
-  --bg: url("") ;
 }
 
 body {
   text-align: center;
+  line-height: 0.5rem;
+  box-sizing: border-box;
   margin: 0 auto;
   color: white;
   font: 10% roboto-slab-thin;
   background-image: var(--light-background);
 }
-body > #container {
+body #container {
   text-align: left;
   margin: 0 auto;
   padding: 0;
-  box-sizing: border-box;
   list-style: none;
-}
-
-.headshot {
-  margin-bottom: 20%;
-}
-.headshot > img {
-  width: 25%;
-  border-radius: 50%;
-  border: 5px solid #555;
-  animation: o-rotate-360 linear 8s infinite;
-  margin: 5% 0% 2% 0%;
-  position: relative;
-  box-shadow: 15px 15px 50px 0 black;
-}
-
-.center, .navigation, .headshot {
-  margin: auto;
-  width: 50%;
-}
-
-.heading {
-  box-shadow: 0 30px 100px 0 black;
-  background-image: var(--heading-background);
-  font-size: 2rem;
-  margin: 0.5% 0.5% 5% 0.5%;
-}
-
-.background, body, .heading {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.navigation {
-  font-size: 1 rem;
-  margin-bottom: 20%;
-  padding: 2% 0 1% 0;
-}
-.navigation > a {
-  margin-inline: 1%;
-  font-size: 1.5rem;
-  padding: 1%;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -75,14 +34,189 @@ body > #container {
   src: url("resources/fonts/roboto-slab-thin.tff");
 }
 /*-------------------------------------------------------------------------------------------------------*/
+/* DRY Classes */
+/* Centers Items in a Container */
+.center, .link-label, .socials, .navigation, .headshot {
+  margin: auto;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sets Rules for Backdrop Images */
+.background, .heading, body {
+  background-repeat: no-repeat;
+  background-color: #555;
+  background-size: cover;
+}
+
+/* Template for Cards in the Body */
+.body-cards, h1, .socials, .personal-info .about, .project-card {
+  margin: 4% 1% 4% 1%;
+  padding: 2.5% 1% 2.5% 1%;
+  box-shadow: 10px 15px 50px 0 black;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-size: 2.5rem;
+}
+
+/*--------------------------------------------------*/
+/* Heading Classes */
+/* Photo of Me ( To Be Replaced ) */
+.headshot img {
+  width: 25%;
+  border-radius: 50%;
+  border: 5px solid #555;
+  margin: 2% 0% 2% 0%;
+  position: relative;
+  box-shadow: 15px 15px 50px 0 black;
+}
+
+/* Heading Box */
+.heading {
+  margin: 0.5% 0.5% 1% 0.5%;
+  box-shadow: 0 30px 100px 0 black;
+  background-image: var(--heading-background);
+}
+
+/* Attempt at Underlining */
+span {
+  font-size: 2rem;
+  text-decoration: underline wavy #4b4b4b 1%;
+}
+
+/* Navigation Bar */
+.navigation {
+  font-size: 1rem;
+  padding: 1% 0.5% 1% 0.5%;
+}
+.navigation a {
+  font-size: 1.5rem;
+  padding: 1%;
+}
+
+/*--------------------------------------------------*/
+/* About Me */
+.personal-info {
+  width: 75%;
+  margin-inline: auto;
+}
+.personal-info .about {
+  line-height: 1.8rem;
+}
+.personal-info .about p {
+  font-size: 1.25rem;
+}
+
+/*--------------------------------------------------*/
+/* Socials */
+.socials {
+  float: center;
+  margin: 1% 25% 1% 25%;
+}
+
+/* Labels for the Socials Links */
+.link-label {
+  white-space: nowrap;
+  font-size: 1.5rem;
+}
+
+/* Sets up Grid Layout for Links */
+.link-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.link-wrapper a {
+  width: 100%;
+  color: black;
+  display: flex;
+}
+.link-wrapper a > img {
+  padding-left: 7.5%;
+  width: 4rem;
+}
+
+/*--------------------------------------------------*/
+/* Projects */
+.project-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Header for Projects */
+h1 {
+  width: 50%;
+  float: center;
+  margin: 1% 25% 1% 25%;
+}
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.project-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.project-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
 /* Animations */
-.fade-in-header, .heading {
+/* Primary Fade-In Template */
+.fade-in-header, .fade-in-body, .personal-info, .headshot img, span {
   animation-name: fade-in-opacity;
+  opacity: 0;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
+/* Secondary Delayed Fade-In Template */
+.fade-in-body, .personal-info {
+  animation-delay: 1s;
+}
+
+/* Fade Keyframe */
 @keyframes fade-in-opacity {
   0% {
     opacity: 0;
@@ -91,6 +225,7 @@ body > #container {
     opacity: 1;
   }
 }
+/* Background Image Fade-In Template */
 .fade-in-bg, a:hover {
   opacity: 1;
   animation-name: bg-fade-in;
@@ -100,14 +235,18 @@ body > #container {
   animation-duration: 0.5s;
 }
 
+/* Link Animation */
+a:hover {
+  border-radius: 1rem;
+}
+
+/* Give Links a Background on Hover */
 @keyframes bg-fade-in {
   0% {
     background-color: rgba(75, 75, 75, 0);
-    font-size: 1.5rem;
   }
   100% {
-    background-color: rgba(75, 75, 75, 0.5);
-    font-size: 1.6rem;
+    background-color: rgba(75, 75, 75, 0.7);
   }
 }
 /*-------------------------------------------------------------------------------------------------------*/
@@ -124,23 +263,77 @@ body > #container {
 
 :hover {
   text-decoration: none;
-  color: white;
 }
 
 :active {
   text-decoration: none;
-  color: white;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
-/* Media queries to set breakpoints for different device sizes */
-/* Support for Mobile */
+/* Grid View for Responsive Grid Layout */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* For mobile phones: */
 [class*=col-] {
   width: 100%;
 }
 
-/* Support for desktop */
-@media only screen and (min-width = 768px) {
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
+  }
+
+  .col-s-2 {
+    width: 16.66%;
+  }
+
+  .col-s-3 {
+    width: 25%;
+  }
+
+  .col-s-4 {
+    width: 33.33%;
+  }
+
+  .col-s-5 {
+    width: 41.66%;
+  }
+
+  .col-s-6 {
+    width: 50%;
+  }
+
+  .col-s-7 {
+    width: 58.33%;
+  }
+
+  .col-s-8 {
+    width: 66.66%;
+  }
+
+  .col-s-9 {
+    width: 75%;
+  }
+
+  .col-s-10 {
+    width: 83.33%;
+  }
+
+  .col-s-11 {
+    width: 91.66%;
+  }
+
+  .col-s-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
   .col-1 {
     width: 8.33%;
   }
