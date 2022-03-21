@@ -15,7 +15,7 @@ body {
     box-sizing: border-box;
     margin: 0 auto;
     color: white;
-    font: 10% roboto-slab-thin;
+    font: 0.5vw roboto-slab-thin;
     #container {
         text-align:left;
         margin:0 auto;
@@ -61,19 +61,17 @@ body {
 
 /* Template for Cards in the Body */
 .body-cards {
+    @extend .fade-in-body;
     margin: 4% 1% 4% 1%;
-    padding: 2.5% 1% 2.5% 1%;
+    padding: 2.5% 0 2.5% 0;
     box-shadow: 10px 15px 50px 0 rgb(0, 0, 0);
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
-    font-size: 2.5rem;
+    font-size: calc(3.5vw * var(--text-multiplier));
 }
 
 .project-card {
     @extend .body-cards;
-    img {
-
-    }
 }
 
 /*--------------------------------------------------*/
@@ -104,17 +102,16 @@ body {
 /* Attempt at Underlining */
 span {
     @extend .fade-in-header;
-    font-size: 2rem;
+    font-size: calc(3vw * var(--text-multiplier));
     text-decoration: underline wavy rgba(75, 75, 75, 1) 1%;
 }
 
 /* Navigation Bar */
 .navigation {
     @extend .center;
-    font-size: 1rem;
+    font-size: calc(1.75vw * var(--text-multiplier));
     padding: 1% 0.5% 1% 0.5%;
     a {
-        font-size: 1.5rem;
         padding: 1%;
     }
 }
@@ -124,13 +121,15 @@ span {
 
 .personal-info{
     @extend .fade-in-body;
-    width: 75%;
+    width: 70vw;
     margin-inline: auto;
     .about {
         @extend .body-cards;
-        line-height: 1.8rem;
+        line-height: calc(2vw * var(--text-multiplier));
         p {
-            font-size: 1.25rem;
+            font-size: calc(1.75vw * var(--text-multiplier));
+            padding-left: 5%;
+            padding-right: 5%;
         }
     }
 }
@@ -141,15 +140,16 @@ span {
 .socials {
     @extend .body-cards;
     @extend .center;
+    width: calc(47.5vw * var(--text-multiplier));
     float: center;
-    margin: 1% 25% 1% 25%;
+    margin: auto;
 }
 
 /* Labels for the Socials Links */
 .link-label {
     @extend .center;
     white-space: nowrap;
-    font-size: 1.5rem;
+    font-size: calc(1.5vw * var(--text-multiplier));
 }
 
 /* Sets up Grid Layout for Links */
@@ -162,7 +162,7 @@ span {
         display: flex;
         > img {
             padding-left: 7.5%;
-            width: 4rem;
+            width: calc(4vw * var(--text-multiplier));
         }
     }
 }
@@ -182,9 +182,10 @@ span {
 /* Header for Projects */
 h1 {
     @extend .body-cards;
-    width: 50%;
+    width: calc(45vw * var(--text-multiplier));
+    font-size: calc(3vw * var(--text-multiplier));
     float: center;
-    margin: 1% 25% 1% 25%;
+    margin: auto;
 }
 
 .dropbtn {
@@ -319,8 +320,13 @@ a:hover {
 }
 
 /* For mobile phones: */
-[class*="col-"] {
-    width: 100%;
+@media only screen and (max-width: 600px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+    :root{
+        --text-multiplier: 2;
+    }
 }
   
 @media only screen and (min-width: 600px) {
@@ -337,6 +343,10 @@ a:hover {
     .col-s-10 {width: 83.33%;}
     .col-s-11 {width: 91.66%;}
     .col-s-12 {width: 100%;}
+
+    :root{
+        --text-multiplier: 1;
+    }
 }
   
 @media only screen and (min-width: 768px) {
@@ -353,4 +363,8 @@ a:hover {
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+
+    :root{
+        --text-multiplier: 1;
+    }
 }
