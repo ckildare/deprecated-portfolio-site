@@ -1,8 +1,7 @@
 @import 'animate.css';
 :root {
-  --light-background: url("resources/images/white-background.png");
-  --darker-background: url("resources/images/beige-background-2.png");
-  --heading-background: url("resources/images/black-panel-background.png");
+  --light-background: url("resources/images/backgrounds/white-background.png");
+  --heading-background: url("resources/images/backgrounds/black-panel-background.png");
 }
 
 html {
@@ -54,7 +53,7 @@ body #container {
 }
 
 /* Template for Cards in the Body */
-.body-cards, .project-head, .project-wrapper .panel, .socials, .personal-info .about {
+.body-cards, .project-wrapper .panel, .socials, .personal-info .about, .section-head-template, .project-head, .personal-info .about-head {
   margin: calc(6vw * var(--text-multiplier)) 0 calc(6vw * var(--text-multiplier)) 0;
   padding: 1.25vw 0 1.25vw 0;
   box-shadow: 1vw 2vw 2.5vw 0 rgba(0, 0, 0, 0.61);
@@ -80,7 +79,13 @@ body #container {
   font-size: calc(1.5vw * var(--text-multiplier));
 }
 
-.fade-animation, .project-expand, .social-fade-in, .link-wrapper a:hover, .project-wrapper .project-link-wrapper a:hover, .link-fade-in, .heading .navigation a:hover, .fade-in-header, .fade-in-body, .body-cards, .personal-info, .personal-info .about, .socials, .project-wrapper .panel, .project-head, .headshot img, .heading .name {
+.section-head-template, .project-head, .personal-info .about-head {
+  width: calc(45vw * var(--text-multiplier));
+  font-size: calc(3vw * var(--text-multiplier));
+  float: center;
+}
+
+.fade-animation, .project-expand, .social-fade-in, .link-wrapper a:hover, .project-wrapper .project-link-wrapper a:hover, .link-fade-in, .heading .navigation a:hover, .fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .heading .name {
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
@@ -121,17 +126,17 @@ body #container {
 
 /*--------------------------------------------------*/
 /* About Me */
-.personal-info {
-  width: 70vw;
-  margin-inline: auto;
+.personal-info .about-head {
+  margin: calc(6vw * var(--text-multiplier)) auto calc(4vw * var(--text-multiplier));
 }
 .personal-info .about {
-  line-height: calc(2.25vw * var(--text-multiplier));
-}
-.personal-info .about .about-text {
+  margin: 0;
   font-size: calc(1.75vw * var(--text-multiplier));
+  line-height: calc(2.5vw * var(--text-multiplier));
   padding-left: 5%;
   padding-right: 5%;
+  width: 85vw;
+  margin-inline: auto;
 }
 
 /*--------------------------------------------------*/
@@ -159,9 +164,13 @@ body #container {
 }
 /*--------------------------------------------------*/
 /* Projects */
+.project-head {
+  margin: calc(6vw * var(--text-multiplier)) auto calc(-1.5vw * var(--text-multiplier));
+}
+
 .project-wrapper {
   display: grid;
-  margin: calc(1.5vw * var(--text-multiplier));
+  margin: 0 calc(1.5vw * var(--text-multiplier));
   grid-template-columns: var(--portfolio-grid);
   gap: calc(1.5vw * var(--text-multiplier));
   color: black;
@@ -206,24 +215,16 @@ body #container {
   color: black;
 }
 
-.project-head {
-  width: calc(45vw * var(--text-multiplier));
-  font-size: calc(3vw * var(--text-multiplier));
-  float: center;
-  margin: auto;
-  margin-bottom: calc(3vw * var(--text-multiplier));
-}
-
 /*-------------------------------------------------------------------------------------------------------*/
 /* Animations */
 /* Primary Fade-In Template */
-.fade-in-header, .fade-in-body, .body-cards, .personal-info, .personal-info .about, .socials, .project-wrapper .panel, .project-head, .headshot img, .heading .name {
+.fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .heading .name {
   animation-name: fade-in-opacity;
   opacity: 0;
 }
 
 /* Secondary Delayed Fade-In Template */
-.fade-in-body, .body-cards, .personal-info, .personal-info .about, .socials, .project-wrapper .panel, .project-head {
+.fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel {
   animation-delay: 1s;
 }
 

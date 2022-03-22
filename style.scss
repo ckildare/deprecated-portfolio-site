@@ -1,12 +1,11 @@
 @import 'animate.css';
 
-$image-root: "resources/images";
+$background-root: "resources/images/backgrounds";
 $font-root: "resources/fonts";
 
 :root {
-    --light-background: url("#{$image-root}/white-background.png");
-    --darker-background: url("#{$image-root}/beige-background-2.png");
-    --heading-background: url("#{$image-root}/black-panel-background.png");
+    --light-background: url("#{$background-root}/white-background.png");
+    --heading-background: url("#{$background-root}/black-panel-background.png");
 }
 
 html {
@@ -90,6 +89,13 @@ body {
     }
 }
 
+.section-head-template {
+    @extend .body-cards;
+    width: calc(45vw * var(--text-multiplier));
+    font-size: calc(3vw * var(--text-multiplier));
+    float: center;
+}
+
 .fade-animation {
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -144,17 +150,20 @@ body {
 /* About Me */
 
 .personal-info{
-    @extend .fade-in-body;
-    width: 70vw;
-    margin-inline: auto;
+    .about-head {
+        @extend .section-head-template;
+        margin: calc(6vw * var(--text-multiplier)) auto calc(4vw * var(--text-multiplier));
+    }
     .about {
         @extend .body-cards;
-        line-height: calc(2.25vw * var(--text-multiplier));
-        .about-text {
-            font-size: calc(1.75vw * var(--text-multiplier));
-            padding-left: 5%;
-            padding-right: 5%;
-        }
+        @extend .fade-in-body;
+        margin: 0;
+        font-size: calc(1.75vw * var(--text-multiplier));
+        line-height: calc(2.5vw * var(--text-multiplier));
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 85vw;
+        margin-inline: auto;
     }
 }
 
@@ -195,9 +204,14 @@ body {
 /*--------------------------------------------------*/
 /* Projects */
 
+.project-head {
+    @extend .section-head-template;
+    margin: calc(6vw * var(--text-multiplier)) auto calc(-1.5vw * var(--text-multiplier));
+}
+
 .project-wrapper {
     display: grid;
-    margin: calc(1.5vw * var(--text-multiplier));
+    margin: 0 calc(1.5vw * var(--text-multiplier));
     grid-template-columns: var(--portfolio-grid);
     gap: calc(1.5vw * var(--text-multiplier));
     color:rgb(0, 0, 0);
@@ -247,15 +261,6 @@ body {
             color: rgb(0, 0, 0);
         }
     }
-}
-
-.project-head {
-    @extend .body-cards;
-    width: calc(45vw * var(--text-multiplier));
-    font-size: calc(3vw * var(--text-multiplier));
-    float: center;
-    margin: auto;
-    margin-bottom: calc(3vw * var(--text-multiplier));
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
