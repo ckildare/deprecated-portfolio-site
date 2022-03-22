@@ -1,21 +1,25 @@
 "use strict";
 
-function dropdown() {
-  document.getElementById("project-dropdown").classList.toggle("show");
-} // Close the dropdown if the user clicks outside of it
+$(document).ready(function () {
+  $(".toggle-accordion").on("click", function () {
+    var accordionId = $(this).attr("accordion-id"),
+        numPanelOpen = $(accordionId + ' .collapse.in').length;
+    $(this).toggleClass("active");
 
-
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("project-content");
-    var iter;
-
-    for (iter = 0; i < dropdowns.length; iter++) {
-      var openDropdown = dropdowns[i];
-
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+    if (numPanelOpen == 0) {
+      openAllPanels(accordionId);
+    } else {
+      closeAllPanels(accordionId);
     }
-  }
-};
+  });
+
+  openAllPanels = function openAllPanels(aId) {
+    console.log("setAllPanelOpen");
+    $(aId + ' .panel-collapse:not(".in")').collapse('show');
+  };
+
+  closeAllPanels = function closeAllPanels(aId) {
+    console.log("setAllPanelclose");
+    $(aId + ' .panel-collapse.in').collapse('hide');
+  };
+});

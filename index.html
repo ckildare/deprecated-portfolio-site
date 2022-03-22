@@ -1,48 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="script.js"></script>
     <head>
         <link rel="stylesheet" href="output.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Connor Kildare</title>
-        <script src="script.js"></script>
     </head>
 
     <body>
         <div class="heading">
-            <div class="headshot">
-                <img src="resources/images/temp-headshot.png" alt="Connor Kildare Headshot"/>
-            </div>
-            <span>Connor Kildare</span>
+            <div class="headshot"><img src="resources/images/temp-headshot.png" alt="Connor Kildare Headshot"/></div>
+            <div class="name">Connor Kildare</div>
             <div class="navigation">
                 <a href="resources/images/resume.pdf">Resume</a>
-                <a href="resources/images/resume.pdf">Projects</a>
+                <a href="#projects">Projects</a>
                 <a href="resources/images/resume.pdf">Experiences</a>
             </div>
         </div>
         <div class="personal-info">
             <div class="about">
                 About Me
-                <p>
+                <div class="about-text">
                 I am a learning frontend developer studying Software Engineering at the University of Nebraska at Lincoln. I am familiar with HTML, CSS, and Bootstrap frontend languages.
                 My experience with these languages comes from my time working in Yao labs as an undergraduate researcher at UNL and involvement through projects with BuddySystems. Working
                 with BuddySystems has allowed me to pick up experience working with different languages and programming tools while understanding team dynamics and the project pipeline. I 
                 am grateful for the opportunity to work with the motivated and driven people in BuddySystems who have helped me develop my technical skillset in a way that coursework could
                 not compare to.
-                </p>
+                </div>
             </div>
         </div>
-        <h1>Projects that I have Worked On</h1>
+        <div class="project-head" id="projects">Projects that I have Worked On</div>
         <div class="project-wrapper">
-            <div class="dropdown">
-                <button onclick="dropdown()" class="dropbtn">Dropdown</button>
-                <div id="project-dropdown" class="project-content">
-                  <a href="#home">Home</a>
-                  <a href="#about">About</a>
-                  <a href="#contact">Contact</a>
+            <div class="panel-group-horizontal">
+                <div class="panel panel-default project">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">
+                            <img src="resources/images/card-screenshots/axel-wilson-card.png" alt="Screenshot of the Axel Wilson Mixtape Maker Site"/>
+                            <div class="title-label">Axel Wilson's Mixtape Maker</div>
+                        </a>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse out">
+                        <div class="panel-body">
+                            <p>
+                                Axel Wilson's Mixtape Maker was developed during Cornhacks 2022 by AJ Richerson, Elijah Smith,
+                            Rylen Lanning, and myself. Becasause the theme of the hackathon was 'retro', we settled on the
+                            aesthetic of 'Bill and Ted's Excellent Adventure' with the our fake person Axel Wilson who 'owns' 
+                            the site.
+                            </p>
+                            <p>
+                                The web app leverages the recommendation system from Spotify Web API through Spotipy to get song
+                            recommendations on a single-song basis. After choosing a base song to start with, the API will
+                            reccomend five songs from which the user can choose the songs they would like to proceed with. Songs 
+                            chosen will be passed through the recommendation system to generate new songs. Songs will only be 
+                            reccomended based off of the songs chosen on in the previous set, where no songs will be recommended
+                            twice. At the end comes the 'Mixtape' part, where all chosen songs will be compiled into a playlist.
+                            </p>
+                            <p>
+                                My contribution to the project consisted of planning group meetings beforehand to get the group members
+                            aquainted with one another, setting out general project ideas, developing the frontend of the web app using
+                            CSS and HTML and collaborating with AJ who was familiar with React, and sifting through some troubleshooting
+                            errors with some users on Mac.
+                            </p>
+                            <div class="project-link-wrapper">
+                                <a href="https://axel-wilsons-mixtape-maker.herokuapp.com">
+                                    <img src="resources/images/axel.png" alt="Link to Axel Wilson's Mixtape Maker">
+                                    <div class="link-label">Check the Website Here</div>
+                                </a>
+                            </div>
+                            <div class="project-link-wrapper">
+                                <a href="https://github.com/CodeCricut/RetroPlaylistGenerator">
+                                    <img src="resources/images/link-logos/github.png" alt="Link to Axel Wilson's Mixtape Maker GitHub">
+                                    <div class="link-label">Check out the GitHub</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-        </div>
+            </div>
+            <div class="panel-group-horizontal">
+                <div class="panel panel-default project">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">
+                            <img src="resources/images/card-screenshots/buddy-systems-logo.png" alt="Buddy Systems Logo"/>
+                            <div class="title-label">Axel Wilson Mixtape Maker</div>
+                        </a>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse out">
+                        <div class="panel-body">Body</div>
+                    </div>
+                </div>
+            </div><div class="panel-group-horizontal">
+                <div class="panel panel-default project">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" href="#collapse3">
+                            <img src="resources/images/card-screenshots/portfolio-site.png" alt="Screenshot fo the Axel Wilson Mixtape Maker Site"/>
+                            <div class="title-label">Axel Wilson Mixtape Maker</div>
+                        </a>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse out">
+                        <div class="panel-body">Body</div>
+                    </div>
+                </div>
+            </div>
+        </div>      
         <div class="socials">
             Where You Can Find Me:
             <div class="link-wrapper">
