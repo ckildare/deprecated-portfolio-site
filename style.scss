@@ -242,6 +242,9 @@ body {
         a:hover {
             @extend .social-fade-in;
         }
+        img {
+            padding: calc(0.25vw * var(--text-multiplier)) 0;
+        }
     }
     a {
         position: relative;

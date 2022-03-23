@@ -196,6 +196,9 @@ body #container {
 .project-wrapper .project-link-wrapper a {
   margin: calc(1.5vw * var(--text-multiplier)) 0;
 }
+.project-wrapper .project-link-wrapper img {
+  padding: calc(0.25vw * var(--text-multiplier)) 0;
+}
 .project-wrapper a {
   position: relative;
   font-size: calc(2vw * var(--text-multiplier));
