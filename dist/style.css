@@ -85,13 +85,21 @@ body #container {
   float: center;
 }
 
-.fade-animation, .project-expand, .social-fade-in, .link-wrapper a:hover, .project-wrapper .project-link-wrapper a:hover, .link-fade-in, .heading .navigation a:hover, .fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .heading .name {
+.fade-animation, .project-expand, .social-fade-in, .link-wrapper a:hover, .project-wrapper .project-link-wrapper a:hover, .link-fade-in, .heading .navigation a:hover, .fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .name {
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-duration: 0.5s;
 }
 
+.underline, .name {
+  text-decoration: underline solid white calc(0.25vw * var(--text-multiplier)) !important;
+  text-underline-offset: calc(0.5vw * var(--text-multiplier));
+}
+
+.link-styling :link, .project-wrapper :link, .socials :link, .heading .navigation :link, .link-styling :active, .project-wrapper :active, .socials :active, .heading .navigation :active, .link-styling :hover, .project-wrapper :hover, .socials :hover, .heading .navigation :hover, .link-styling :visited, .project-wrapper :visited, .socials :visited, .heading .navigation :visited {
+  text-decoration: none !important;
+}
 /*--------------------------------------------------*/
 /* Heading Classes */
 /* Photo of Me ( To Be Replaced ) */
@@ -118,10 +126,13 @@ body #container {
 .heading .navigation a {
   padding: 1%;
   color: #bbbbbb;
+  box-shadow: 0.25vw 0.25vw 0.5vw rgba(0, 0, 0, 0.5);
+  background-color: rgba(119, 118, 118, 0.25);
+  border-radius: 1rem;
 }
-.heading .name {
+.name {
   font-size: calc(3vw * var(--text-multiplier));
-  text-decoration: underline wavy rgba(75, 75, 75, 0) 1%;
+  line-height: calc(5vw * var(--text-multiplier));
 }
 
 /*--------------------------------------------------*/
@@ -130,7 +141,7 @@ body #container {
   margin: calc(6vw * var(--text-multiplier)) auto calc(4vw * var(--text-multiplier));
 }
 .personal-info .about {
-  margin: 0;
+  margin: auto;
   font-size: calc(1.75vw * var(--text-multiplier));
   line-height: calc(2.5vw * var(--text-multiplier));
   padding-left: 5%;
@@ -221,7 +232,7 @@ body #container {
 /*-------------------------------------------------------------------------------------------------------*/
 /* Animations */
 /* Primary Fade-In Template */
-.fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .heading .name {
+.fade-in-header, .fade-in-body, .body-cards, .section-head-template, .personal-info .about-head, .personal-info .about, .socials, .project-head, .project-wrapper .panel, .headshot img, .name {
   animation-name: fade-in-opacity;
   opacity: 0;
 }
@@ -250,8 +261,8 @@ body #container {
 /* Give Links a Background on Hover */
 @keyframes link-fade-in {
   0% {
-    background-color: rgba(109, 109, 109, 0);
-    box-shadow: 0 0 0 0 black;
+    background-color: rgba(119, 118, 118, 0.25);
+    box-shadow: 0.25vw 0.25vw 0.5vw rgba(0, 0, 0, 0.5);
   }
   100% {
     background-color: rgba(119, 118, 118, 0.7);
@@ -275,12 +286,6 @@ body #container {
 .project-expand {
   animation-name: project-expand;
   opacity: 1;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-/* Default Link Styling */
-:link, :active, :hover, :visited {
-  text-decoration: none !important;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/

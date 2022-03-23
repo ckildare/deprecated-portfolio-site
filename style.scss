@@ -103,6 +103,18 @@ body {
 	animation-duration: 0.5s;
 }
 
+.underline {
+    text-decoration: underline solid rgba(255, 255, 255, 1) calc(0.25vw * var(--text-multiplier)) !important;
+    text-underline-offset: calc(0.5vw * var(--text-multiplier));
+}
+
+.link-styling {
+    :link {text-decoration: none !important;}
+    :visited {@extend :link;}
+    :hover {@extend :link;}
+    :active {@extend :link;}
+}
+
 /*--------------------------------------------------*/
 /* Heading Classes */
 
@@ -129,21 +141,25 @@ body {
     background-image: var(--heading-background);
     .navigation {
         @extend .center;
+        @extend .link-styling;
         font-size: calc(1.75vw * var(--text-multiplier));
         padding: 1% 0.5% 1% 0.5%;
         a {
             padding: 1%;
             color: rgb(187, 187, 187);
+            box-shadow: 0.25vw 0.25vw 0.5vw rgba(0, 0, 0, 0.5);
+            background-color: rgba(119, 118, 118, 0.25);
+            border-radius: 1rem;
         }
-        a:hover {
-            @extend .link-fade-in;
-        }
+        a:hover {@extend .link-fade-in;}
     }
-    .name {
-        @extend .fade-in-header;
-        font-size: calc(3vw * var(--text-multiplier));
-        text-decoration: underline wavy rgba(75, 75, 75, 0) 1%;
-    }
+}
+
+.name {
+    @extend .fade-in-header;
+    @extend .underline;
+    font-size: calc(3vw * var(--text-multiplier));
+    line-height: calc(5vw * var(--text-multiplier));
 }
 
 /*--------------------------------------------------*/
@@ -157,7 +173,7 @@ body {
     .about {
         @extend .body-cards;
         @extend .fade-in-body;
-        margin: 0;
+        margin: auto;
         font-size: calc(1.75vw * var(--text-multiplier));
         line-height: calc(2.5vw * var(--text-multiplier));
         padding-left: 5%;
@@ -173,6 +189,7 @@ body {
 .socials {
     @extend .body-cards;
     @extend .center;
+    @extend .link-styling;
     width: calc(47.5vw * var(--text-multiplier));
     float: center;
     margin: auto;
@@ -210,6 +227,7 @@ body {
 }
 
 .project-wrapper {
+    @extend .link-styling;
     display: grid;
     margin: 0 calc(1.5vw * var(--text-multiplier));
     grid-template-columns: var(--portfolio-grid);
@@ -299,8 +317,8 @@ body {
 /* Give Links a Background on Hover */
 @keyframes link-fade-in {
 	0% {
-		background-color: rgba(109, 109, 109, 0);
-        box-shadow: 0 0 0 0 rgb(0, 0, 0);
+		background-color: rgba(119, 118, 118, 0.25);
+        box-shadow: 0.25vw 0.25vw 0.5vw rgba(0, 0, 0, 0.5);
 	}
 	100% {
 		background-color: rgba(119, 118, 118, 0.7);
@@ -325,13 +343,6 @@ body {
 	animation-name: project-expand;
     opacity: 1;
 }
-
-/*-------------------------------------------------------------------------------------------------------*/
-/* Default Link Styling */
-:link {text-decoration: none !important;}
-:visited {@extend :link;}
-:hover {@extend :link;}
-:active {@extend :link;}
 
 /*-------------------------------------------------------------------------------------------------------*/
 /* Grid View for Responsive Grid Layout */
